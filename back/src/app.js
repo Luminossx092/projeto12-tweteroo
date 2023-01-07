@@ -29,13 +29,13 @@ app.post('/sign-up',((req,res)=>{
 }))
 app.post('/tweets',((req,res)=>{
     tweets.push(req.body);
-    console.log(tweets)
     res.send("OK");
 }))
 app.get('/tweets',((_,res)=>{
     const arr = [];
-    for(let i = 0;i<10&&i<tweets.length;i++){
-        arr.push({...tweets[i],avatar: usuarios.find(u=>u.username==tweets[i].username).avatar});
+    const lastTweets = tweets.reverse().slice(0,10)
+    for(let i = 0;i<lastTweets.length;i++){
+        arr.push({...lastTweets[i],avatar: usuarios.find(u=>u.username==lastTweets[i].username).avatar});
     }
     res.send(arr);
 }))
