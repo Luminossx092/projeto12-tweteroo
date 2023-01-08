@@ -33,4 +33,4 @@ app.get('/tweets',((_,res)=>{
 }))
 
 const PORT = 5000;
-app.listen(PORT,()=>{console.log('iniciou esse servidor: ' + PORT)});
+app.listen(PORT);
